@@ -1,0 +1,48 @@
+name: flutter_code_base
+description: The Flutter Project Base Created by BrianNguyen
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  #------------------
+  #Cores
+  get_it: any
+  flutter_bloc: any
+  equatable: any
+  logger: any
+   # flutter pub run build_runner build --delete-conflicting-outputs
+  json_annotation: any
+  retrofit: any
+  # flutter packages pub run build_runner build
+  floor: ^1.1.0
+  flutter_secure_storage: any
+  flutter_easyloading: any
+  page_transition: any
+  #------------------
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  retrofit_generator: any
+  json_serializable: any
+  floor_generator: any
+  build_runner: any
+  flutter_lints: any
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/background.png
+    - assets/images/ic_joyku_app.png
+    - assets/images/bg_social_background.png
+    - assets/images/ic_campaing.png
+    - assets/images/ic_event.png
+    - assets/images/ic_gift.png
