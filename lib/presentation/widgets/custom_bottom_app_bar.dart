@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_code_base/presentation/blocs/bottom_bar/bottom_bar_bloc.dart';
 import 'package:flutter_code_base/presentation/blocs/bottom_bar/bottom_bar_event.dart';
 import 'package:flutter_code_base/presentation/blocs/bottom_bar/bottom_bar_state.dart';
-import 'package:flutter_code_base/presentation/pages/home/home_page.dart';
+import 'package:flutter_code_base/presentation/pages/tab/home_page.dart';
+import 'package:flutter_code_base/presentation/pages/tab/search_container.dart';
+import 'package:flutter_code_base/presentation/pages/tab/search_page.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
   const CustomBottomAppBar({Key? key}) : super(key: key);
@@ -43,9 +45,23 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
               controller: _controller,
               children: [
                 TopHomePage(),
-                TopHomePage(),
-                TopHomePage(),
-                TopHomePage(),
+                SearchContainer(),
+                Center(child: Text("ahihi"),),
+                SingleChildScrollView(
+                  physics: ScrollPhysics(),
+                  child: Column(
+                    children: <Widget>[
+                      Text('Hey'),
+                      ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount:18,
+                          itemBuilder: (context,index){
+                            return  Text('Some text');
+                          })
+                    ],
+                  ),
+                ),
                 TopHomePage()
               ],
               onPageChanged: (page) {
@@ -170,21 +186,23 @@ class BottomAppBarItem extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        IconButton(
-          onPressed: onPressed,
-          padding: EdgeInsets.zero,
-          icon: Column(children: [
-            Container(
-              width: iconSize,
-              height: iconSize,
-              margin: EdgeInsets.only(bottom: marginBottom),
-              child: ColorFiltered(
-                child: icon,
-                colorFilter: ColorFilter.mode(
-                    isActive ? Colors.black : Colors.white, BlendMode.srcIn),
+        InkWell(
+          onTap : onPressed,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(children: [
+              Container(
+                width: iconSize,
+                height: iconSize,
+                margin: EdgeInsets.only(bottom: marginBottom),
+                child: ColorFiltered(
+                  child: icon,
+                  colorFilter: ColorFilter.mode(
+                      isActive ? Colors.black : Colors.white, BlendMode.srcIn),
+                ),
               ),
-            ),
-          ]),
+            ]),
+          ),
         ),
         if (label != null)
           Text(label!,

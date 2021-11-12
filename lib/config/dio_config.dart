@@ -18,6 +18,8 @@ class CustomInterceptors extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    options.headers["device"] = "android";
+    options.headers["version"] = "1.0.4";
     logi.d('REQUEST[${options.method}] => PATH: ${options.path}');
     _requestStream.add(options);
     return super.onRequest(options, handler);

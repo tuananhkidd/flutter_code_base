@@ -46,3 +46,4 @@ flutter:
     - assets/images/ic_campaing.png
     - assets/images/ic_event.png
     - assets/images/ic_gift.png
+    - assets/address.json

@@ -14,6 +14,7 @@ class AppScaford<T extends Bloc> extends StatelessWidget {
       this.onWillPop,
       this.padding = Dimens.size16,
       this.safeArea = true,
+      this.backgroundColor = Colors.white,
       this.footer})
       : super(key: key);
   final Widget body;
@@ -25,6 +26,7 @@ class AppScaford<T extends Bloc> extends StatelessWidget {
   final double padding;
   final bool safeArea;
   final Widget? footer;
+  final Color backgroundColor;
 
   Future<bool> _willPopCallback() async {
     onWillPop?.call();
@@ -47,7 +49,7 @@ class AppScaford<T extends Bloc> extends StatelessWidget {
             Positioned.fill(
               child: Scaffold(
                 extendBodyBehindAppBar: true,
-                backgroundColor: Colors.white,
+                backgroundColor: backgroundColor,
                 appBar: (title == null || title!.isEmpty)
                     ? null
                     : AppBar(

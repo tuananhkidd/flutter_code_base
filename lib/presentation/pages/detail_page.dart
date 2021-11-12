@@ -17,7 +17,7 @@ class DetailPage extends StatelessWidget {
           bloc.add(InitDetailEvent(name: arguments));
         }
       },
-      title: TitlesConstants.detailTitle,
+      padding: 0,
       body: const DetailListener(),
     );
   }
@@ -51,8 +51,8 @@ class DetailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DetailBloc, DetailState>(
       builder: (context, state) {
-        return Center(
-          child: Text(state.name ?? ''),
+        return Container(
+          color: Colors.deepOrange,
         );
       },
     );

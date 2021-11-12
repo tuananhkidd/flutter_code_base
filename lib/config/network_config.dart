@@ -58,7 +58,7 @@ class StagingMode extends NetWorkMode {
 class DevelopmentMode extends NetWorkMode {
   DevelopmentMode(
       {String localDBName = 'local.db',
-      String baseUrl = 'https://60dd4164878c890017fa2749.mockapi.io/test/v1/',
+      String baseUrl = 'http://joyku-dev.beetechdev.vn:8801/api/v1/',
       String apiKey = 'ff957763c54c44d8b00e5e082bc76cb0',
       int connectTimeout = 30000,
       int receiveTimeout = 30000})
